@@ -1,7 +1,7 @@
 #include "game.h"
 #include "snake.h"
 
-Snake g_snake = {10, 20};
+Snake g_snake = {10, 20, 1, 0};
 
 //Initalize the SDL modules
 bool game_init(Game * game, const char * title, int x_pos, int y_pos, int width, int height, int flags){

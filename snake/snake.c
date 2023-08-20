@@ -8,6 +8,7 @@ void snake_draw(Game * g,Snake * snake){
 }
 
 void snake_update(float delta_time, Snake * snake){
-    int snake_speed = 2000;
-    snake->x += snake_speed * delta_time; 
+    float snake_speed = 100.0f;
+    snake->x += (snake_speed * delta_time); 
+    //snake->y += (snake_speed * delta_time) * snake->dir_y;
 }
