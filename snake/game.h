@@ -16,9 +16,16 @@ typedef struct game {
     int flags;
     bool running;
     
+    //System parameters
     SDL_Window * window;
     SDL_Renderer * renderer;
-    float delta_time; 
+    SDL_Event event;
+    SDL_Surface * surface;
+
+    //Delta time 
+    uint64_t now;
+    uint64_t last;
+    double delta_time; 
 } Game;
 
 //Initalize the SDL modules
@@ -31,5 +38,6 @@ void game_update(Game * game);
 void game_handle_events(Game *game);
 //Game clean 
 void game_clean(Game * game);
-
+//Update the delta time value
+void update_delta_time(Game * game);
 #endif
