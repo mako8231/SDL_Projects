@@ -8,13 +8,9 @@ int main(int argc, char* argv[]) {
     Game game;
     int i = 0;
     game_init(&game, "Snake Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, 0);
-    
+
     //Clean up SDL
     while (game.running){
-        i++;
-        if (i>400){
-            game.running = false;
-        }
         game_render(&game);
         game_update(&game);
         game_handle_events(&game);

@@ -1,7 +1,7 @@
 #include "game.h"
 #include "snake.h"
 
-Snake g_snake = {10, 20, 1, 0};
+Snake g_snake = {10, 20, 0.0f, 1.0f};
 
 //Initalize the SDL modules
 bool game_init(Game * game, const char * title, int x_pos, int y_pos, int width, int height, int flags){
@@ -50,16 +50,13 @@ void update_delta_time(Game * game){
     game->last = game->now;
     game->now = SDL_GetPerformanceCounter();
 
-    game->delta_time = (double)((game->now - game->last)*1000/(double)SDL_GetPerformanceCounter());
-    printf("%f\n", game->delta_time);
-    
+    game->delta_time = (double)((game->now - game->last)*1000/(double)SDL_GetPerformanceCounter());   
 }
 
 //Game update 
 void game_update(Game * game){
     //set the delta time
     update_delta_time(game);
-    printf("%f\n", game->delta_time);
     snake_update(game->delta_time, &g_snake);
 }
 //Handling events 
