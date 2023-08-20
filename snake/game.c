@@ -62,13 +62,29 @@ void game_update(Game * game){
 //Handling events 
 void game_handle_events(Game *game){
     while (SDL_PollEvent(&game->event)){
+        //Keyboard handling
         switch (game->event.type){
             case SDL_KEYDOWN: 
-                printf("Down Key pressed\n");
-                break;
-            case SDL_KEYUP:
-                printf("Up key pressed\n");
-                break;
+                switch(game->event.key.keysym.sym){
+                    case SDLK_LEFT:
+                        g_snake.dir_x = -1;
+                        g_snake.dir_y = 0;
+                    break;
+                    case SDLK_UP:
+                        g_snake.dir_x = 0;
+                        g_snake.dir_y = -1;
+                    break;
+                    case SDLK_DOWN:
+                        g_snake.dir_x = 0;
+                        g_snake.dir_y = 1;
+                    break;
+                    case SDLK_RIGHT:
+                        g_snake.dir_x = 1;
+                        g_snake.dir_y = 0;
+                    break;
+                    default:
+                    break;
+                }
             default: 
             break;
         }
