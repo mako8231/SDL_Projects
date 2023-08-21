@@ -89,6 +89,9 @@ void game_handle_events(Game *game){
                     default:
                     break;
                 }
+	    break;
+	    case SDL_QUIT:
+		game->running = false;
             default: 
             break;
         }
