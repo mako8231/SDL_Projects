@@ -23,8 +23,7 @@ typedef struct game {
     SDL_Surface * surface;
 
     //Delta time 
-    uint64_t now;
-    uint64_t last;
+    uint64_t m_ticks;
     double delta_time; 
 } Game;
 
